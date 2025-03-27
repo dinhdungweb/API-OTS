@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# Shopify - Nhanh.vn Sync
+
+## Cài đặt
+1. Clone repository: `git clone <repo-url>`
+2. Cài đặt dependencies: `npm install`
+3. Cài đặt Redis: `brew install redis` (Mac) hoặc tương tự
+4. Khởi động Redis: `redis-server`
+5. Tạo database: `npx prisma migrate dev --name init`
+6. Tạo user mặc định:
+   ```bash
+   npx prisma db execute --file init.sql
