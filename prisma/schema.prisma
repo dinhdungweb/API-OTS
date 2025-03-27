@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ProductMapping {
+  shopifyId   String @id
+  nhanhvnId   String
+  nhanhvnName String
+}
+
+model SyncLog {
+  id        Int      @id @default(autoincrement())
+  shopifyId String?
+  nhanhvnId String?
+  timestamp DateTime @default(now())
+  status    String
+  message   String
+}
+
+model Config {
+  id               Int    @id @default(1)
+  nhanhApiKey      String
+  shopifyAccessToken String
+  syncInterval     Int
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+  role     String
+}
